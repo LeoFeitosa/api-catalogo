@@ -1,4 +1,4 @@
-namespace APICatalogo.Model;
+namespace APICatalogo.Models;
 
 public class Produto
 {
