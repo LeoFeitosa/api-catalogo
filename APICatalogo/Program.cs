@@ -1,11 +1,16 @@
+using APICatalogo.Context;
+
 var builder = WebApplication.CreateBuilder(args);
-
 // Add services to the container.
-
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// Connection DB
+var connectionString = builder.Configuration.GetConnectionString("CatalogoConnection");
+builder.Services.AddDbContext<AppDbContext>(opts =>
+opts.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
 var app = builder.Build();
 
