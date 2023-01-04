@@ -13,7 +13,7 @@ namespace APICatalogo.Controllers
 
         public CategoriasController(AppDbContext context)
         {
-            context = _context;
+            _context = context;
         }
 
         [HttpGet("produtos")]
